@@ -1,0 +1,35 @@
+{
+  "name": "generic-plawright-website-testing",
+  "version": "1.0.0",
+  "description": "A Microsoft Playwright based configurative approach to automatically run website tests, including opening a page, accepting cookie consent, check the existence of certain libraries (request-based) as well as inspecting payloads of made requests such as website tracking",
+  "main": "index.js",
+  "scripts": {
+    "codegen": "npx playwright codegen",
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bjoernkoth/generic-plawright-website-testing.git"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "generic",
+    "automatic"
+  ],
+  "author": "Bjoern Koth <mailto:bkoth.work@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bjoernkoth/generic-plawright-website-testing/issues"
+  },
+  "homepage": "https://github.com/bjoernkoth/generic-plawright-website-testing#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.46.0",
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^22.1.0",
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

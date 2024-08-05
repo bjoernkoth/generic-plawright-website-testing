@@ -1,0 +1,120 @@
+{
+  "name": "Website A",
+  "consent": {
+    "locator": {
+      "name": "locator",
+      "value": "#onetrust-accept-btn-handler"
+    }
+  },
+  "requestsPattern": ".*",
+  "tests": [
+    {
+      "name": "Homepage EN",
+      "url": "https://www.swisscom.ch/en/residential.html?country=CH",
+      "dataLayer": {
+        "name": "adobeDataLayer",
+        "payload": {
+          "event": "page",
+          "platform": {
+            "platform": "scportal"
+          },
+          "page": {
+            "path": "",
+            "language": "en",
+            "cfu": "res",
+            "type": "home"
+          }
+        }
+      },
+      "requests": [
+        {
+          "url": "/datalayer-sync-min.js"
+        },
+        {
+          "url": "/launch-a2a8ec9c4e3e.min.js"
+        },
+        {
+          "url": "so.swisscom.ch/ee",
+          "payload": {
+            "events": [
+              {
+                "xdm": {
+                  "web": {
+                    "webPageDetails": {
+                      "name": "res",
+                      "pageViews": {
+                        "value": 1
+                      }
+                    }
+                  },
+                  "eventType": "page"
+                },
+                "data": {
+                  "isLoggedIn": false,
+                  "event": "page",
+                  "country": "CH",
+                  "isB2B": false,
+                  "isB2C": true
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Homepage DE",
+      "url": "https://www.swisscom.ch/de/privatkunden.html?country=CH",
+      "dataLayer": {
+        "name": "adobeDataLayer",
+        "payload": {
+          "event": "page",
+          "platform": {
+            "platform": "scportal"
+          },
+          "page": {
+            "path": "",
+            "language": "de",
+            "cfu": "res",
+            "type": "home"
+          }
+        }
+      },
+      "requests": [
+        {
+          "url": "/datalayer-sync-min.js"
+        },
+        {
+          "url": "/launch-a2a8ec9c4e3e.min.js"
+        },
+        {
+          "url": "so.swisscom.ch/ee",
+          "payload": {
+            "events": [
+              {
+                "xdm": {
+                  "web": {
+                    "webPageDetails": {
+                      "name": "res",
+                      "pageViews": {
+                        "value": 1
+                      }
+                    }
+                  },
+                  "eventType": "page"
+                },
+                "data": {
+                  "isLoggedIn": false,
+                  "event": "page",
+                  "country": "CH",
+                  "isB2B": false,
+                  "isB2C": true
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
