@@ -62,13 +62,39 @@ export async function processConsent(page: Page, config: IfcGenericConfig, path?
  * @param expectedPayload - key-value payload to look for
  */
 export const waitForDataLayer = async (page: Page, dataLayerName: string, expectedPayload?: object) => {
-    // @ts-ignore
-    const dataLayer = await page.evaluate(({dataLayerName}) => window[dataLayerName], {dataLayerName});
-    expect(dataLayer).toBeDefined();
-    expect(dataLayer).toBeInstanceOf(Array);
+    const dataLayer = await page.evaluate(({dataLayerName}) => {
+
+        // if dataLayerName contains a dot, try to resolve it gracefully, abort if not possible
+        const dataLayerNameParts = dataLayerName.split(".");
+        let dataLayer = window;
+        for (const part of dataLayerNameParts) {
+            // @ts-ignore
+            if (dataLayer[part]) {
+                // @ts-ignore
+                dataLayer = dataLayer[part];
+            } else {
+                return undefined;
+            }
+        }
+
+        return dataLayer;
+    }, {dataLayerName});
+
     if (expectedPayload) {
         expect(expectedPayload).toBeInstanceOf(Object);
-        expect(dataLayer.some((item: object) => _.isMatch(item, expectedPayload))).toBeTruthy();
+
+        if (Array.isArray(dataLayer)) {
+            // array dataLayer
+            expect(dataLayer).toBeInstanceOf(Array);
+
+            expect(dataLayer.some((item: object) => _.isMatch(item, expectedPayload))).toBeTruthy();
+        } else if (_.isObject(dataLayer)) {
+            // single object dataLayer
+            expect(dataLayer).toBeInstanceOf(Object);
+
+            // @ts-ignore
+            expect(_.isMatch(dataLayer, expectedPayload)).toBeTruthy();
+        }
     }
 }
 
