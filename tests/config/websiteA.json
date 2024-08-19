@@ -10,31 +10,22 @@
   "tests": [
     {
       "name": "Homepage EN",
-      "url": "https://www.swisscom.ch/en/residential.html?country=CH",
+      "url": "https://www.somewebsite.com",
       "dataLayer": {
         "name": "adobeDataLayer",
         "payload": {
           "event": "page",
-          "platform": {
-            "platform": "scportal"
-          },
-          "page": {
-            "path": "",
-            "language": "en",
-            "cfu": "res",
-            "type": "home"
+          "someobject": {
+            "someproperty": "scportal"
           }
         }
       },
       "requests": [
         {
-          "url": "/datalayer-sync-min.js"
+          "url": "/launch"
         },
         {
-          "url": "/launch-a2a8ec9c4e3e.min.js"
-        },
-        {
-          "url": "/ee",
+          "url": "/somerequest/path/to/page",
           "payload": {
             "events": [
               {
@@ -48,10 +39,6 @@
                     }
                   },
                   "eventType": "page"
-                },
-                "data": {
-                  "isLoggedIn": false,
-                  "event": "page"
                 }
               }
             ]
